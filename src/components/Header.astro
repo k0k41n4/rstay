@@ -1,37 +1,87 @@
-<header class="sticky top-0 z-50 w-full bg-slate-900 border-b border-white/5 shadow-2xl">
-  <div class="max-w-7xl mx-auto px-6 h-24 flex justify-between items-center">
+---
+// Header Ultra-Minimalist - RStay Co-Living
+---
+
+<header class="sticky top-0 z-[100] w-full bg-slate-900/90 backdrop-blur-xl border-b border-white/5 shadow-2xl transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-6 h-20 md:h-24 flex justify-between items-center">
     
     <a href="/" class="flex items-center gap-4 group transition-all">
-      <img 
-        src="../../public/logo.png" 
-        alt="RStay Co-Living Logo" 
-        class="h-16 md:h-20 w-auto object-contain brightness-110 group-hover:scale-105 transition-transform duration-300" 
-      />
+      <div class="relative">
+        <img 
+          src="/logo.png" 
+          alt="RStay" 
+          class="h-14 md:h-18 w-auto object-contain brightness-125 group-hover:scale-105 transition-transform duration-500 ease-out" 
+        />
+        <div class="absolute inset-0 bg-blue-500/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </div>
       
-      <div class="hidden sm:block border-l-2 border-white/20 pl-4">
-        <span class="block text-xs font-black uppercase tracking-[0.3em] text-blue-400">Co-Living</span>
-        <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-tighter leading-tight italic">Nusa Dua • Bali</span>
+      <div class="hidden sm:block border-l-2 border-white/10 pl-4 py-1">
+        <span class="block text-[10px] font-black uppercase tracking-[0.4em] text-blue-400 leading-none">Co-Living</span>
+        <span class="block text-[8px] font-bold text-slate-500 uppercase tracking-tighter mt-1 italic leading-none">Nusa Dua • Bali</span>
       </div>
     </a>
 
-    <nav class="hidden md:flex items-center gap-10">
-      <a href="#rooms" class="text-sm font-bold text-slate-300 hover:text-white transition-colors uppercase tracking-widest">Rooms</a>
-      <a href="#community" class="text-sm font-bold text-slate-300 hover:text-white transition-colors uppercase tracking-widest">Flock</a>
-      <a href="#booking" class="bg-blue-600 text-white px-8 py-3 rounded-xl text-sm font-black shadow-lg shadow-blue-900/50 hover:bg-blue-500 active:scale-95 transition-all uppercase tracking-widest">
-        Book Now
+    <nav class="hidden md:flex items-center gap-4">
+      <a href="#rooms" class="px-6 py-2 text-[11px] font-black text-slate-300 hover:text-white transition-all uppercase tracking-[0.2em] hover:bg-white/5 rounded-full">
+        The Rooms
+      </a>
+      
+      <a href="#booking" class="relative group overflow-hidden bg-blue-600 text-white px-8 py-3.5 rounded-full text-[11px] font-black shadow-xl shadow-blue-900/40 transition-all hover:bg-blue-500 hover:-translate-y-1 active:scale-95 uppercase tracking-[0.2em]">
+        <span class="relative z-10">Book Your Space</span>
+        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
       </a>
     </nav>
 
-    <button id="menu-btn" class="md:hidden p-3 text-slate-300 hover:bg-white/10 rounded-xl transition-colors">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
+    <button id="menu-btn" class="md:hidden group p-3 text-slate-300 hover:text-white transition-all relative z-[110]">
+      <div class="w-8 h-5 flex flex-col justify-between items-end">
+        <span id="line1" class="w-8 h-1 bg-current rounded-full transition-all duration-300"></span>
+        <span id="line2" class="w-5 h-1 bg-current rounded-full transition-all duration-300"></span>
+      </div>
     </button>
   </div>
 
-  <div id="mobile-menu" class="hidden md:hidden absolute top-24 left-0 w-full bg-slate-900 border-b border-white/5 p-8 flex flex-col gap-6 shadow-2xl">
-    <a href="#rooms" class="mobile-link text-xl font-black text-white uppercase tracking-widest">Rooms</a>
-    <a href="#community" class="mobile-link text-xl font-black text-white uppercase tracking-widest">The Flock</a>
-    <a href="#booking" class="mobile-link bg-blue-600 text-white p-5 rounded-2xl text-center font-black text-lg uppercase tracking-widest">BOOK NOW</a>
+  <div id="mobile-menu" class="fixed inset-0 top-0 left-0 w-full h-screen bg-slate-950/98 backdrop-blur-2xl z-[105] flex flex-col items-center justify-center gap-12 opacity-0 pointer-events-none transition-all duration-500">
+    <a href="#rooms" class="mobile-link text-4xl font-black text-white uppercase tracking-[0.3em] hover:text-blue-400 transition-colors">The Rooms</a>
+    <a href="#booking" class="mobile-link bg-blue-600 text-white px-12 py-6 rounded-2xl font-black text-xl uppercase tracking-[0.3em] shadow-2xl shadow-blue-900/50">Book Now</a>
+    
+    <div class="absolute bottom-12">
+      <p class="text-[10px] font-black text-slate-700 uppercase tracking-[0.5em]">Retreat Living • Bali</p>
+    </div>
   </div>
 </header>
+
+<script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const l1 = document.getElementById('line1');
+  const l2 = document.getElementById('line2');
+  const links = document.querySelectorAll('.mobile-link');
+
+  let isOpen = false;
+
+  function toggleMenu() {
+    isOpen = !isOpen;
+    if (isOpen) {
+      menu?.classList.remove('opacity-0', 'pointer-events-none');
+      menu?.classList.add('opacity-100', 'pointer-events-auto');
+      l1.style.transform = 'rotate(-45deg) translate(-5px, 6px)';
+      l2.style.transform = 'rotate(45deg) translate(-2px, -3px)';
+      l2.style.width = '32px';
+      document.body.style.overflow = 'hidden';
+    } else {
+      menu?.classList.add('opacity-0', 'pointer-events-none');
+      menu?.classList.remove('opacity-100', 'pointer-events-auto');
+      l1.style.transform = 'none';
+      l2.style.transform = 'none';
+      l2.style.width = '20px';
+      document.body.style.overflow = 'auto';
+    }
+  }
+
+  btn?.addEventListener('click', toggleMenu);
+  links.forEach(link => link.addEventListener('click', toggleMenu));
+</script>
+
+<style>
+  @keyframes shimmer { 100% { transform: translateX(100%); } }
+</style>

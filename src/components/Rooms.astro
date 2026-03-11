@@ -5,19 +5,22 @@ const rooms = [
     name: "Super Haven",
     desc: "Kamar paling luas dengan balkon pribadi. Cocok buat yang mau fokus total tanpa gangguan.",
     tag: "Work-Focus",
-    img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800"
+    img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800",
+    price: 650.000
   },
   {
     name: "Minimal Haven",
     desc: "Definisi 'Value, Not Stuff'. Ruangan efisien, meja kerja ergonomis, dan vibe ultra-minimalis.",
     tag: "Minimalist",
-    img: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&q=80&w=800"
+    img: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&q=80&w=800",
+    price: 450.000
   },
   {
     name: "The Flock Room",
     desc: "Kamar dengan akses paling dekat ke common area. Pas buat yang mau networking bareng creator lain.",
     tag: "Community",
-    img: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=800"
+    img: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=800",
+    price: 350.000
   }
 ];
 ---
@@ -60,7 +63,7 @@ const rooms = [
               {room.desc}
             </p>
             <div class="flex items-center justify-between pt-6 border-t border-slate-50">
-              <span class="text-xl font-black text-[#0047AB]">450k<span class="text-xs text-slate-400 font-normal">/nett</span></span>
+              <span class="text-xl font-black text-[#0047AB]">{room.price}K<span class="text-xs text-slate-400 font-normal">/nett</span></span>
               <a href="#booking" class="text-xs font-bold uppercase tracking-widest border-b-2 border-[#0047AB] pb-1 hover:text-[#0047AB] transition-colors">
                 Book Room
               </a>
