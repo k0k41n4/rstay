@@ -13,12 +13,5 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  integrations: [svelte()],
-  
-  adapter: cloudflare({
-    // Mode 'complete' biar semua fitur Cloudflare Workers bisa lu pake nantinya
-    platformProxy: {
-      enabled: true,
-    },
-  }),
+  integrations: [svelte()]
 });
