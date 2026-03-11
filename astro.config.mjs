@@ -1,18 +1,24 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-
 import tailwindcss from '@tailwindcss/vite';
-
 import svelte from '@astrojs/svelte';
-
 import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
+  // INI KUNCINYA: Bikin web lu bisa static sekaligus punya backend
+  output: 'hybrid', 
+
   vite: {
     plugins: [tailwindcss()]
   },
 
   integrations: [svelte()],
-  adapter: cloudflare()
+  
+  adapter: cloudflare({
+    // Mode 'complete' biar semua fitur Cloudflare Workers bisa lu pake nantinya
+    platformProxy: {
+      enabled: true,
+    },
+  }),
 });
