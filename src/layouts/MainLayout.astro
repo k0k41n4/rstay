@@ -1,0 +1,40 @@
+---
+// src/layouts/MainLayout.astro
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css'
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <title>{title} | RStay Co-Living Nusa Dua</title>
+    
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key={import.meta.env.PUBLIC_MIDTRANS_CLIENT_KEY}></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-white font-['Inter',sans-serif] text-slate-900 antialiased">
+    
+    <Header />
+    
+    <main>
+      <slot /> </main>
+    
+    <Footer />
+
+  </body>
+</html>
+
+<style is:global>
+  /* Halus-halusin scroll dikit */
+  html {
+    scroll-behavior: smooth;
+  }
+</style>

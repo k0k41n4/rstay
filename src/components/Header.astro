@@ -1,0 +1,37 @@
+<header class="sticky top-0 z-50 w-full bg-slate-900 border-b border-white/5 shadow-2xl">
+  <div class="max-w-7xl mx-auto px-6 h-24 flex justify-between items-center">
+    
+    <a href="/" class="flex items-center gap-4 group transition-all">
+      <img 
+        src="../../public/logo.png" 
+        alt="RStay Co-Living Logo" 
+        class="h-16 md:h-20 w-auto object-contain brightness-110 group-hover:scale-105 transition-transform duration-300" 
+      />
+      
+      <div class="hidden sm:block border-l-2 border-white/20 pl-4">
+        <span class="block text-xs font-black uppercase tracking-[0.3em] text-blue-400">Co-Living</span>
+        <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-tighter leading-tight italic">Nusa Dua • Bali</span>
+      </div>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-10">
+      <a href="#rooms" class="text-sm font-bold text-slate-300 hover:text-white transition-colors uppercase tracking-widest">Rooms</a>
+      <a href="#community" class="text-sm font-bold text-slate-300 hover:text-white transition-colors uppercase tracking-widest">Flock</a>
+      <a href="#booking" class="bg-blue-600 text-white px-8 py-3 rounded-xl text-sm font-black shadow-lg shadow-blue-900/50 hover:bg-blue-500 active:scale-95 transition-all uppercase tracking-widest">
+        Book Now
+      </a>
+    </nav>
+
+    <button id="menu-btn" class="md:hidden p-3 text-slate-300 hover:bg-white/10 rounded-xl transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden absolute top-24 left-0 w-full bg-slate-900 border-b border-white/5 p-8 flex flex-col gap-6 shadow-2xl">
+    <a href="#rooms" class="mobile-link text-xl font-black text-white uppercase tracking-widest">Rooms</a>
+    <a href="#community" class="mobile-link text-xl font-black text-white uppercase tracking-widest">The Flock</a>
+    <a href="#booking" class="mobile-link bg-blue-600 text-white p-5 rounded-2xl text-center font-black text-lg uppercase tracking-widest">BOOK NOW</a>
+  </div>
+</header>
