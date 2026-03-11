@@ -7,7 +7,7 @@ import cloudflare from '@astrojs/cloudflare';
 // https://astro.build/config
 export default defineConfig({
   // INI KUNCINYA: Bikin web lu bisa static sekaligus punya backend
-  output: 'hybrid', 
+  output: 'static', 
 
   vite: {
     plugins: [tailwindcss()]
